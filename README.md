@@ -2,8 +2,6 @@
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1026,50:2B1E5C,100:6C3CE9&height=210&section=header&text=ASTROMIND&fontSize=58&fontColor=FFFFFF&animation=fadeIn&fontAlignY=38&desc=Every%20Machine%20Has%20a%20Story%20%E2%80%A2%20Every%20Discovery%20Has%20a%20Legacy&descAlignY=62&descSize=17" width="100%" alt="ASTROMIND Animated Space Header" />
 
-  <img src="assets/icons/orbit-mark.svg" width="85" alt="ASTROMIND Orbit Mark" />
-
   <h3>🚀 Team Orbit Smiths Presents — NASA Space Apps Challenge 2026</h3>
 
   <!-- ANIMATED TYPING SUBTITLE -->
