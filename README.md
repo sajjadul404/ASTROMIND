@@ -4,17 +4,6 @@
 
   <h3>🚀 Team Orbit Smiths Presents — NASA Space Apps Challenge 2026</h3>
 
-
-  <!-- QUICK NAVIGATION BAR -->
-  <p>
-    <a href="#-at-a-glance">⚡ At a Glance</a> •
-    <a href="#-mission-chapters">🪐 Mission Chapters</a> •
-    <a href="#-prototype-gallery">📸 Prototype Gallery</a> •
-    <a href="#-getting-started">🚀 Quick Start</a> •
-    <a href="#-240-second-pitch-story">🎬 Pitch Story</a> •
-    <a href="#-team-orbit-smiths">👩‍🚀 Team</a>
-  </p>
-
   <br />
 
   <!-- HERO START SCREEN PREVIEW -->
