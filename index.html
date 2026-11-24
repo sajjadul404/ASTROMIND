@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASTROMIND — Team Orbit Smiths | NASA Space Apps Challenge 2026</title>
+  <style>
+    :root {
+      --bg-deep: #060919;
+      --bg-card: #111836;
+      --bg-card-hover: #19234d;
+      --primary: #a259ff;
+      --secondary: #38bdf8;
+      --accent-orange: #fb923c;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: rgba(162, 89, 255, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at top, #171e47 0%, var(--bg-deep) 60%);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Animated Starfield Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 90px 140px, #38bdf8, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 210px 80px, #c4b5fd, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 310px 220px, #ffffff, rgba(0,0,0,0));
+      background-size: 360px 280px;
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: -1;
+      animation: starDrift 45s linear infinite;
+    }
+
+    @keyframes starDrift {
+      from { transform: translateY(0); }
+      to { transform: translateY(-280px); }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6, 9, 25, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: 2px;
+    }
+
+    .brand img {
+      width: 36px;
+      height: 36px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.35rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #6c3ce9);
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(162, 89, 255, 0.4);
+    }
+
+    .btn-outline {
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--secondary);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    section {
+      margin-bottom: 4.5rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 2rem 0 1rem;
+    }
+
+    .badge-pill {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      background: rgba(162, 89, 255, 0.16);
+      border: 1px solid var(--border);
+      color: #d8b4fe;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      letter-spacing: 4px;
+      background: linear-gradient(90deg, #ffffff, #c4b5fd, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p.tagline {
+      font-size: 1.2rem;
+      color: #e2e8f0;
+      max-width: 720px;
+      margin: 0 auto 1.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-preview {
+      width: 100%;
+      max-width: 920px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    .scope-note {
+      margin-top: 1rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .section-title {
+      font-size: 1.85rem;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    /* Interactive Mission Explorer */
+    .mission-tabs {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .tab-btn {
+      padding: 0.65rem 1.25rem;
+      border-radius: 10px;
+      background: var(--bg-card);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .mission-meta {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--secondary);
+    }
+
+    /* Interactive Quiz */
+    .quiz-item {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    .quiz-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .quiz-item h4 {
+      margin-bottom: 0.75rem;
+      color: #e2e8f0;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .quiz-options label {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      cursor: pointer;
+    }
+
+    .quiz-options label:hover {
+      border-color: var(--secondary);
+    }
+
+    #quiz-result {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      font-weight: 600;
+      color: #e0f2fe;
+    }
+
+    /* Team Grid */
+    .team-poster {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .member-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+    }
+
+    .member-card h4 {
+      color: #ffffff;
+      margin-bottom: 0.2rem;
+    }
+
+    .member-card span {
+      font-size: 0.88rem;
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="#prototype" class="brand">
+        <img src="assets/icons/orbit-mark.svg" alt="ASTROMIND Orbit Mark" />
+        <span>ASTROMIND</span>
+      </a>
+      <nav>
+        <a href="#prototype">Overview</a>
+        <a href="#missions">Mission Chapters</a>
+        <a href="#quiz">Knowledge Quiz</a>
+        <a href="#team">Team Orbit Smiths</a>
+        <a href="https://www.figma.com/proto/OkwNxRuUFlf88F82MKg0HP/Nasa-space-app-challenge-2026?node-id=48-3&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A6" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open Figma Prototype</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="prototype" class="hero">
+      <span class="badge-pill">NASA SPACE APPS CHALLENGE 2026 • TEAM ORBIT SMITHS</span>
+      <h1>ASTROMIND</h1>
+      <p class="tagline">
+        Every machine has a story. Every discovery has a legacy. An interactive educational adventure exploring NASA's historic Moon and Mars explorers.
+      </p>
+      <div class="hero-actions">
+        <a href="https://www.figma.com/proto/OkwNxRuUFlf88F82MKg0HP/Nasa-space-app-challenge-2026?node-id=48-3&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A6" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          ▶ Play Interactive Figma Prototype
+        </a>
+        <a href="docs/presentation/ASTROMIND-240-Second-Script.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          📄 Read 240-Second Pitch Script (PDF)
+        </a>
+      </div>
+      <img src="assets/images/astromind-start-screen.png" alt="ASTROMIND Figma Start Screen" class="hero-preview" />
+      <p class="scope-note">
+        Note: ASTROMIND is an interactive Figma design prototype and educational showcase. No live NASA API integration or published mobile store build is claimed.
+      </p>
+    </section>
+
+    <!-- MISSION EXPLORER -->
+    <section id="missions">
+      <h2 class="section-title">🪐 Interactive Mission Chapters</h2>
+      <p class="section-subtitle">Select an iconic NASA spacecraft to explore its journey, engineering purpose, and scientific legacy.</p>
+
+      <div class="mission-tabs">
+        <button type="button" class="tab-btn active" onclick="selectMission('apollo', this)">🌕 Apollo Lunar Rover</button>
+        <button type="button" class="tab-btn" onclick="selectMission('sojourner', this)">🔴 Sojourner Rover</button>
+        <button type="button" class="tab-btn" onclick="selectMission('opportunity', this)">🟠 Opportunity Rover</button>
+      </div>
+
+      <div id="mission-feature" class="card">
+        <div class="mission-meta">
+          <span class="tag">Destination: The Moon</span>
+          <span class="tag">Program: Apollo 15–17</span>
+        </div>
+        <h3>Apollo Lunar Roving Vehicle (LRV)</h3>
+        <p style="margin: 0.75rem 0;">
+          On the lunar surface, astronauts used the electric-powered Lunar Roving Vehicle to travel far beyond their landing sites and conduct geological fieldwork across distant craters and highlands.
+        </p>
+        <p style="color: #cbd5e1; margin-bottom: 1rem;">
+          <strong>Key Learning Question:</strong> Why was mobility such an important part of scientific fieldwork on the Moon?
+        </p>
+        <a href="https://www.nasa.gov/mission/apollo-17/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore NASA Apollo 17 Archive →</a>
+      </div>
+    </section>
+
+    <!-- KNOWLEDGE QUIZ -->
+    <section id="quiz">
+      <h2 class="section-title">🧠 Mission Knowledge Challenge</h2>
+      <p class="section-subtitle">Test what you learned about the machines left behind on the Moon and Mars.</p>
+
+      <div class="card">
+        <div class="quiz-item">
+          <h4>1. How long did NASA's Opportunity rover explore Mars compared to its original 90-sol design?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q1" value="0" /> About 6 months</label>
+            <label><input type="radio" name="q1" value="1" /> Nearly 15 Earth years</label>
+            <label><input type="radio" name="q1" value="0" /> Exactly 2 Martian years</label>
+          </div>
+        </div>
+
+        <div class="quiz-item">
+          <h4>2. Which spacecraft was the first wheeled rover to operate on the surface of Mars?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q2" value="1" /> Sojourner (Mars Pathfinder)</label>
+            <label><input type="radio" name="q2" value="0" /> Curiosity</label>
+            <label><input type="radio" name="q2" value="0" /> Lunar Roving Vehicle</label>
+          </div>
+        </div>
+
+        <div class="quiz-item">
+          <h4>3. What major capability did the Apollo Lunar Roving Vehicle give astronauts on the Moon?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q3" value="0" /> Launching rockets back to Earth</label>
+            <label><input type="radio" name="q3" value="1" /> Traveling far from the landing site for broader geological sampling</label>
+            <label><input type="radio" name="q3" value="0" /> Drilling to the Moon's core</label>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="gradeQuiz()">Check My Answers</button>
+        <div id="quiz-result">Select your answers above and click "Check My Answers" to see your mission score.</div>
+      </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section id="team">
+      <h2 class="section-title">👩‍🚀 Team Orbit Smiths</h2>
+      <p class="section-subtitle">Six contributors uniting planetary research, interactive UX design, development, and storytelling.</p>
+      <img src="assets/images/orbit-smiths-team.png" alt="Team Orbit Smiths Poster" class="team-poster" />
+      <div class="team-grid">
+        <div class="member-card"><h4>Kamrul Islam</h4><span>Team Lead</span></div>
+        <div class="member-card"><h4>Sajidul Islam</h4><span>Researcher</span></div>
+        <div class="member-card"><h4>Mithun Modok</h4><span>UI Designer</span></div>
+        <div class="member-card"><h4>Al Amin Sani</h4><span>Developer</span></div>
+        <div class="member-card"><h4>Shamim Paramanik</h4><span>Video Editor</span></div>
+        <div class="member-card"><h4>Keya Akter</h4><span>Script Writer</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>ASTROMIND</strong> • Team Orbit Smiths • NASA Space Apps Challenge 2026</p>
+    <p style="margin-top: 0.35rem;">Independent student project. NASA name and marks do not imply official endorsement.</p>
+  </footer>
+
+  <script>
+    const missions = {
+      apollo: {
+        world: "Destination: The Moon",
+        program: "Program: Apollo 15–17",
+        title: "Apollo Lunar Roving Vehicle (LRV)",
+        summary: "On the lunar surface, astronauts used the electric-powered Lunar Roving Vehicle to travel far beyond their landing sites and conduct geological fieldwork across distant craters and highlands.",
+        question: "Why was mobility such an important part of scientific fieldwork on the Moon?",
+        url: "https://www.nasa.gov/mission/apollo-17/",
+        linkLabel: "Explore NASA Apollo 17 Archive →"
+      },
+      sojourner: {
+        world: "Destination: Mars (Ares Vallis)",
+        program: "Program: Mars Pathfinder (1997)",
+        title: "Sojourner — First Wheels on Mars",
+        summary: "Part of the Mars Pathfinder mission, Sojourner became the first wheeled rover to operate on another planet, proving mobile robots could directly analyze Martian rocks and soil.",
+        question: "What changes when a spacecraft can drive rather than stay in one place?",
+        url: "https://science.nasa.gov/mission/mars-pathfinder/",
+        linkLabel: "Explore NASA Mars Pathfinder Archive →"
+      },
+      opportunity: {
+        world: "Destination: Mars (Meridiani Planum)",
+        program: "Program: Mars Exploration Rover",
+        title: "Opportunity — Beyond Expectations",
+        summary: "Designed for a 90-sol mission, Opportunity explored the Martian surface for nearly 15 years and uncovered compelling geological evidence of ancient liquid water.",
+        question: "What did Opportunity teach scientists about water on ancient Mars?",
+        url: "https://science.nasa.gov/mission/mer-opportunity/",
+        linkLabel: "Explore NASA Opportunity Archive →"
+      }
+    };
+
+    function selectMission(key, btn) {
+      document.querySelectorAll(".tab-btn").forEach(el => el.classList.remove("active"));
+      btn.classList.add("active");
+      const m = missions[key];
+      document.getElementById("mission-feature").innerHTML = `
+        <div class="mission-meta">
+          <span class="tag">${m.world}</span>
+          <span class="tag">${m.program}</span>
+        </div>
+        <h3>${m.title}</h3>
+        <p style="margin: 0.75rem 0;">${m.summary}</p>
+        <p style="color: #cbd5e1; margin-bottom: 1rem;"><strong>Key Learning Question:</strong> ${m.question}</p>
+        <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">${m.linkLabel}</a>
+      `;
+    }
+
+    function gradeQuiz() {
+      const answers = ["q1", "q2", "q3"];
+      let score = 0;
+      let answered = 0;
+      answers.forEach(name => {
+        const selected = document.querySelector(`input[name="${name}"]:checked`);
+        if (selected) {
+          answered++;
+          if (selected.value === "1") score++;
+        }
+      });
+      const resultBox = document.getElementById("quiz-result");
+      if (answered < 3) {
+        resultBox.textContent = "Please answer all 3 questions before checking your score.";
+        return;
+      }
+      resultBox.textContent = `Mission Complete! You scored ${score} out of 3. Every machine's legacy lives on through what we learn.`;
+    }
+  </script>
+</body>
+</html>
