@@ -4,28 +4,6 @@
 
   <h3>🚀 Team Orbit Smiths Presents — NASA Space Apps Challenge 2026</h3>
 
-  <!-- ANIMATED TYPING SUBTITLE -->
-  <a href="https://www.figma.com/proto/OkwNxRuUFlf88F82MKg0HP/Nasa-space-app-challenge-2026?node-id=48-3&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A6">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=18&duration=3200&pause=1000&color=A259FF&center=true&vCenter=true&multiline=false&width=780&height=40&lines=An+Interactive+Educational+Adventure+Across+the+Moon+%26+Mars;Exploring+Apollo+LRV%2C+Sojourner+%26+Opportunity+Legacies;Built+by+Team+Orbit+Smiths+%E2%80%A2+NASA+Space+Apps+2026" alt="Animated Tagline" />
-  </a>
-
-  <br />
-
-  <!-- PRIMARY ACTION BADGES -->
-  <p>
-    <a href="https://www.figma.com/proto/OkwNxRuUFlf88F82MKg0HP/Nasa-space-app-challenge-2026?node-id=48-3&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A6">
-      <img src="https://img.shields.io/badge/▶_PLAY_INTERACTIVE_PROTOTYPE-FIGMA-A259FF?style=for-the-badge&logo=figma&logoColor=white" alt="Open Figma Prototype" />
-    </a>
-    <a href="docs/presentation/ASTROMIND-240-Second-Script.pdf">
-      <img src="https://img.shields.io/badge/📄_READ_PITCH_SCRIPT-240_SECONDS-FF6B6B?style=for-the-badge" alt="Read Pitch Script" />
-    </a>
-    <a href="https://www.spaceappschallenge.org/">
-      <img src="https://img.shields.io/badge/🛸_NASA_SPACE_APPS-2026-17314D?style=for-the-badge" alt="NASA Space Apps 2026" />
-    </a>
-    <a href="docs/PROTOTYPE_AND_UX.md">
-      <img src="https://img.shields.io/badge/STATUS-FIGMA_PROTOTYPE-2E8291?style=for-the-badge" alt="Project Status" />
-    </a>
-  </p>
 
   <!-- QUICK NAVIGATION BAR -->
   <p>
