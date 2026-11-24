@@ -1,0 +1,43 @@
+{
+  "project": "ASTROMIND",
+  "purpose": "Educational mission highlights derived from the Team Orbit Smiths pitch and linked NASA pages; not live API data",
+  "apiConnected": false,
+  "missions": [
+    {
+      "id": "apollo-lunar-rover",
+      "name": "Apollo Lunar Roving Vehicle",
+      "destination": "Moon",
+      "featuredProgram": "Apollo",
+      "lesson": "The lunar rover expanded how far Apollo astronauts could travel and conduct field science beyond the landing site.",
+      "quizPrompt": "Why did the Apollo astronauts use a lunar rover?",
+      "quizOptions": ["To explore a wider area", "To carry an orbital satellite", "To travel from Earth to the Moon"],
+      "correctOptionIndex": 0,
+      "nasaReference": "https://www.nasa.gov/mission/apollo-17/",
+      "sourceCategory": "NASA historical mission page"
+    },
+    {
+      "id": "sojourner",
+      "name": "Sojourner",
+      "destination": "Mars",
+      "featuredProgram": "Mars Pathfinder",
+      "lesson": "Sojourner was the first rover to operate on Mars and helped pioneer robotic surface exploration.",
+      "quizPrompt": "What made Sojourner a milestone?",
+      "quizOptions": ["It was the first rover to operate on Mars", "It was the first person on Mars", "It returned samples to Earth"],
+      "correctOptionIndex": 0,
+      "nasaReference": "https://science.nasa.gov/mission/mars-pathfinder/",
+      "sourceCategory": "NASA historical mission page"
+    },
+    {
+      "id": "opportunity",
+      "name": "Opportunity",
+      "destination": "Mars",
+      "featuredProgram": "Mars Exploration Rover",
+      "lesson": "Opportunity was planned for about 90 Martian days but continued exploring for nearly fifteen years, uncovering evidence of ancient water.",
+      "quizPrompt": "How long did Opportunity ultimately explore Mars?",
+      "quizOptions": ["About 90 minutes", "One Martian year", "Nearly 15 years"],
+      "correctOptionIndex": 2,
+      "nasaReference": "https://science.nasa.gov/mission/mer-opportunity/",
+      "sourceCategory": "NASA historical mission page"
+    }
+  ]
+}
